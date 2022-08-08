@@ -7,18 +7,22 @@ window.addEventListener('load', (event) => {
     console.log('The page has fully loaded');
     let previousUrl = "";
 
- const observer = new MutationObserver(() => {
-  if (window.location.href !== previousUrl) {
-    console.log(`URL changed from ${previousUrl} to ${window.location.href}`);
-    previousUrl = window.location.href;
-    // do your thing
-  }
-});
-const config = { subtree: true, childList: true };
+     const observer = new MutationObserver(() => {
+      if (window.location.href !== previousUrl) {
+        console.log(`URL changed from ${previousUrl} to ${window.location.href}`);
+        previousUrl = window.location.href;
+        // do your thing
+      }
+    });
+    const config = { subtree: true, childList: true };
 
-// start observing change
-observer.observe(document, config);
+    // start observing change
+    observer.observe(document, config);
+    
+
 });
+
+console.log(window.onload, 'ONLOAD);
 (function() {
     var pushState = history.pushState;
     var replaceState = history.replaceState;
