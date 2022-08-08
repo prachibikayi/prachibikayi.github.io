@@ -3,6 +3,7 @@ const urlParams = new URLSearchParams(location.search);
 localStorage.setItem('addId', urlParams.get('addId'));
 localStorage.setItem('bikStoreId', urlParams.get('bikStoreId'));
 window.onload = function() {
+    console.log('INSIDE ONLOAD');
     let previousUrl = "";
 
      const observer = new MutationObserver(() => {
