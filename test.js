@@ -2,9 +2,7 @@ console.log('Testing', window.onload);
 const urlParams = new URLSearchParams(location.search);
 localStorage.setItem('addId', urlParams.get('addId'));
 localStorage.setItem('bikStoreId', urlParams.get('bikStoreId'));
-
-window.addEventListener('load', (event) => {
-    console.log('The page has fully loaded');
+window.onload = function() {
     let previousUrl = "";
 
      const observer = new MutationObserver(() => {
@@ -18,9 +16,7 @@ window.addEventListener('load', (event) => {
 
     // start observing change
     observer.observe(document, config);
-    
-
-});
+}
 
 console.log(window.onload, 'ONLOAD');
 (function() {
