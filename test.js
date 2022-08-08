@@ -2,50 +2,78 @@ console.log('Testing', window.onload);
 const urlParams = new URLSearchParams(location.search);
 localStorage.setItem('addId', urlParams.get('addId'));
 localStorage.setItem('bikStoreId', urlParams.get('bikStoreId'));
-window.onload = function() {
-    console.log('INSIDE ONLOAD');
-    let previousUrl = "";
 
-     const observer = new MutationObserver(() => {
-      if (window.location.href !== previousUrl) {
-        console.log(`URL changed from ${previousUrl} to ${window.location.href}`);
-        previousUrl = window.location.href;
-        // do your thing
-      }
-    });
-    const config = { subtree: true, childList: true };
+var ready = (function () {
+    var ready_event_fired = false;
+    var ready_event_listener = function (fn) {
 
-    // start observing change
-    observer.observe(document, config);
-}
+        // Create an idempotent version of the 'fn' function
+        var idempotent_fn = function () {
+            if (ready_event_fired) {
+                return;
+            }
+            ready_event_fired = true;
+            return fn();
+        }
 
-console.log(window.onload, 'ONLOAD');
-(function() {
-    var pushState = history.pushState;
-    var replaceState = history.replaceState;
+        // The DOM ready check for Internet Explorer
+        var do_scroll_check = function () {
+            if (ready_event_fired) {
+                return;
+            }
 
-    history.pushState = function() {
-        pushState.apply(history, arguments);
-        window.dispatchEvent(new Event('pushstate'));
-        window.dispatchEvent(new Event('locationchange'));
+            // If IE is used, use the trick by Diego Perini
+            // http://javascript.nwbox.com/IEContentLoaded/
+            try {
+                document.documentElement.doScroll('left');
+            } catch(e) {
+                setTimeout(do_scroll_check, 1);
+                return;
+            }
+
+            // Execute any waiting functions
+            return idempotent_fn();
+        }
+
+        // If the browser ready event has already occured
+        if (document.readyState === "complete") {
+            return idempotent_fn()
+        }
+
+        // Mozilla, Opera and webkit nightlies currently support this event
+        if (document.addEventListener) {
+
+            // Use the handy event callback
+            document.addEventListener("DOMContentLoaded", idempotent_fn, false);
+
+            // A fallback to window.onload, that will always work
+            window.addEventListener("load", idempotent_fn, false);
+
+            // If IE event model is used
+        } else if (document.attachEvent) {
+
+            // ensure firing before onload; maybe late but safe also for iframes
+            document.attachEvent("onreadystatechange", idempotent_fn);
+
+            // A fallback to window.onload, that will always work
+            window.attachEvent("onload", idempotent_fn);
+
+            // If IE and not a frame: continually check to see if the document is ready
+            var toplevel = false;
+
+            try {
+                toplevel = window.frameElement == null;
+            } catch (e) {}
+
+            if (document.documentElement.doScroll && toplevel) {
+                return do_scroll_check();
+            }
+        }
     };
-
-    history.replaceState = function() {
-        replaceState.apply(history, arguments);
-        window.dispatchEvent(new Event('replacestate'));
-        window.dispatchEvent(new Event('locationchange'));
-    };
-
-    window.addEventListener('popstate', function() {
-        window.dispatchEvent(new Event('locationchange'))
-    });
+    return ready_event_listener;
 })();
 
-
-// Usage example:
-
-window.addEventListener('locationchange', function(){
-    console.log('onlocationchange event occurred!');
-})
-
+ready(function(){
+console.log("hi");
+});
 
