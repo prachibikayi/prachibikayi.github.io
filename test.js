@@ -1,4 +1,4 @@
-console.log('Testing!!!!!!!!');
+console.log('Testing');
 const urlParams = new URLSearchParams(location.search);
 localStorage.setItem('addId', urlParams.get('addId'));
 localStorage.setItem('bikStoreId', urlParams.get('bikStoreId'));
