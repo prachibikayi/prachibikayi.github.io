@@ -33,3 +33,17 @@ window.addEventListener('load', (event) => {
 window.addEventListener('locationchange', function(){
     console.log('onlocationchange event occurred!');
 })
+
+let previousUrl = "";
+
+const observer = new MutationObserver(() => {
+  if (window.location.href !== previousUrl) {
+    console.log(`URL changed from ${previousUrl} to ${window.location.href}`);
+    previousUrl = window.location.href;
+    // do your thing
+  }
+});
+const config = { subtree: true, childList: true };
+
+// start observing change
+observer.observe(document, config);
