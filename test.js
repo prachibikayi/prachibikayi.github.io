@@ -75,5 +75,9 @@ var ready = (function () {
 
 ready(function(){
 console.log("hi");
+    let x = location.href.includes('thank_you');
+    if(x) {
+        console.log('calling api');
+    }
 });
 
