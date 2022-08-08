@@ -22,7 +22,7 @@ window.addEventListener('load', (event) => {
 
 });
 
-console.log(window.onload, 'ONLOAD);
+console.log(window.onload, 'ONLOAD');
 (function() {
     var pushState = history.pushState;
     var replaceState = history.replaceState;
