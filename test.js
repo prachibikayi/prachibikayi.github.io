@@ -1,4 +1,4 @@
-console.log('new script called')
+console.log('Shopify Script Tag Works !!!!!!!!');
 const urlParams = new URLSearchParams(location.search);
 localStorage.setItem('addId', urlParams.get('addId'));
 localStorage.setItem('bikStoreId', urlParams.get('bikStoreId'));
