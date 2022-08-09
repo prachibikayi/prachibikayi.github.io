@@ -1,7 +1,7 @@
 const urlParams = new URLSearchParams(location.search);
 const url = location.href;
 const stringParts = url.split('products');
-if(stringParts[1].length > 1) {
+if(stringParts[1] && stringParts[1].length > 1) {
   localStorage.setItem('addId', urlParams.get('addId'));
   localStorage.setItem('bikStoreId', urlParams.get('bikStoreId'));
 }
@@ -80,7 +80,7 @@ ready(function(){
     let hasThankYou = location.href.includes('thank_you');
     let addId = JSON.parse(localStorage.getItem('addId'));
     console.log(addId, 'ADDID');
-    if(hasThankYou) {
+    if(hasThankYou && addId) {
         console.log('calling api');
         fetch('https://jsonplaceholder.typicode.com/todos/1')
         .then(response => response.json())
