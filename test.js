@@ -74,8 +74,16 @@ var ready = (function () {
 
 ready(function(){
     let hasThankYou = location.href.includes('thank_you');
-    if(hasThankYou) {
+    let addId = JSON.parse(localStorage.getItem('addId'));
+    if(hasThankYou && addId) {
         console.log('calling api');
+        fetch('https://jsonplaceholder.typicode.com/todos/1')
+        .then(response => response.json())
+        .then(json => {
+          console.log(json, 'JSON');
+          localStorage.removeItem('addId');
+          localStorage.removeItem('bikStoreId');
+        })
     }
 });
 
