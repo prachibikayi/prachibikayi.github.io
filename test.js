@@ -74,9 +74,8 @@ var ready = (function () {
 })();
 
 ready(function(){
-console.log("hi");
-    let x = location.href.includes('thank_you');
-    if(x) {
+    let hasThankYou = location.href.includes('thank_you');
+    if(hasThankYou) {
         console.log('calling api');
     }
 });
