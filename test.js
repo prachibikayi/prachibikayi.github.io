@@ -90,7 +90,7 @@ ready(function(){
     if(hasThankYou && adId && storeId && waId && checkoutToken) {
         console.log('calling api');
         const data = {
-           storeId : bikStoreId,
+           storeId : storeId,
            waId: waId,
            adId: adId,
            checkoutToken: checkoutToken
