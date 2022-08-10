@@ -2,7 +2,7 @@ const urlParams = new URLSearchParams(location.search);
 const url = location.href;
 const stringParts = url.split('products');
 if(stringParts[1] && stringParts[1].length > 1) {
-  localStorage.setItem('addId', urlParams.get('adId'));
+  localStorage.setItem('adId', urlParams.get('adId'));
   localStorage.setItem('storeId', urlParams.get('storeId'));
   localStorage.setItem('waId', urlParams.get('waId'));
 }
@@ -87,7 +87,6 @@ ready(function(){
     if(hasThankYou && hasCheckouts) {
        checkoutToken = location.href.split('checkouts/')[1].split('/thank_you')[0];
     }
-    console.log(addId, 'ADDID');
     if(hasThankYou && addId && storeId && waId && checkoutToken) {
         console.log('calling api');
         const data = {
