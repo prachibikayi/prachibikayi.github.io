@@ -87,7 +87,7 @@ ready(function(){
     if(hasThankYou && hasCheckouts) {
        checkoutToken = location.href.split('checkouts/')[1].split('/thank_you')[0];
     }
-    if(hasThankYou && addId && storeId && waId && checkoutToken) {
+    if(hasThankYou && adId && storeId && waId && checkoutToken) {
         console.log('calling api');
         const data = {
            storeId : bikStoreId,
