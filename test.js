@@ -80,9 +80,9 @@ var ready = (function () {
 ready(function(){
     let hasThankYou = location.href.includes('thank_you');
     let hasCheckouts = location.href.includes('checkouts');
-    let adId = JSON.parse(localStorage.getItem('adId'));
-    let storeId = JSON.parse(localStorage.getItem('storeId'));
-    let waId = JSON.parse(localStorage.getItem('waId'));
+    let adId = localStorage.getItem('adId');
+    let storeId = localStorage.getItem('storeId');
+    let waId = localStorage.getItem('waId');
     let checkoutToken = null;
     if(hasThankYou && hasCheckouts) {
        checkoutToken = location.href.split('checkouts/')[1].split('/thank_you')[0];
