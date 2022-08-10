@@ -95,7 +95,7 @@ ready(function(){
            waId: waId,
            adId: adId,
            checkoutToken: checkoutToken
-        }.
+        };
         const url = 'https://adfa-49-207-213-84.in.ngrok.io/bikai-d5ee5/asia-south1/ctwaAdsTrackingApiFunctions-saveShopifyCheckoutToken';
         fetch(url, {
             method: 'POST',
