@@ -2,8 +2,9 @@ const urlParams = new URLSearchParams(location.search);
 const url = location.href;
 const stringParts = url.split('products');
 if(stringParts[1] && stringParts[1].length > 1) {
-  localStorage.setItem('addId', urlParams.get('addId'));
-  localStorage.setItem('bikStoreId', urlParams.get('bikStoreId'));
+  localStorage.setItem('addId', urlParams.get('adId'));
+  localStorage.setItem('storeId', urlParams.get('storeId'));
+  localStorage.setItem('waId', urlParams.get('waId'));
 }
 
 var ready = (function () {
@@ -78,17 +79,41 @@ var ready = (function () {
 
 ready(function(){
     let hasThankYou = location.href.includes('thank_you');
-    let addId = JSON.parse(localStorage.getItem('addId'));
+    let hasCheckouts = location.href.includes('checkouts');
+    let adId = JSON.parse(localStorage.getItem('adId'));
+    let storeId = JSON.parse(localStorage.getItem('storeId'));
+    let waId = JSON.parse(localStorage.getItem('waId'));
+    let checkoutToken = null;
+    if(hasThankYou && hasCheckouts) {
+       checkoutToken = location.href.split('checkouts/')[1].split('/thank_you')[0];
+    }
     console.log(addId, 'ADDID');
-    if(hasThankYou && addId) {
+    if(hasThankYou && addId && storeId && waId && checkoutToken) {
         console.log('calling api');
-        fetch('https://jsonplaceholder.typicode.com/todos/1')
-        .then(response => response.json())
-        .then(json => {
-          console.log(json, 'JSON');
-          localStorage.removeItem('addId');
-          localStorage.removeItem('bikStoreId');
-        })
+        const data = {
+           storeId : bikStoreId,
+           waId: waId,
+           adId: adId,
+           checkoutToken: checkoutToken
+        }.
+        const url = 'https://adfa-49-207-213-84.in.ngrok.io/bikai-d5ee5/asia-south1/ctwaAdsTrackingApiFunctions-saveShopifyCheckoutToken';
+        fetch(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data) // body data type must match "Content-Type" header
+         })
+         .then(res => res.json())
+         .then((data) => console.log(data, 'DATA'));
+     
+//         fetch('https://jsonplaceholder.typicode.com/todos/1')
+//         .then(response => response.json())
+//         .then(json => {
+//           console.log(json, 'JSON');
+//           localStorage.removeItem('addId');
+//           localStorage.removeItem('bikStoreId');
+//         })
     }
 });
 
