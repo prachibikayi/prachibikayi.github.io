@@ -1,7 +1,10 @@
 const urlParams = new URLSearchParams(location.search);
 const url = location.href;
 const stringParts = url.split('products');
-if(stringParts[1] && stringParts[1].length > 1) {
+let hasAdId = localStorage.getItem('adId');
+let hasStoreId = localStorage.getItem('storeId');
+let hasWaId = localStorage.getItem('waId');
+if(stringParts[1] && stringParts[1].length > 1 && !hasAdId && !hasStoreId && !hasWaId) {
   localStorage.setItem('adId', urlParams.get('adId'));
   localStorage.setItem('storeId', urlParams.get('storeId'));
   localStorage.setItem('waId', urlParams.get('waId'));
@@ -105,14 +108,6 @@ ready(function(){
          })
          .then(res => res.json())
          .then((data) => console.log(data, 'DATA'));
-     
-//         fetch('https://jsonplaceholder.typicode.com/todos/1')
-//         .then(response => response.json())
-//         .then(json => {
-//           console.log(json, 'JSON');
-//           localStorage.removeItem('addId');
-//           localStorage.removeItem('bikStoreId');
-//         })
     }
 });
 
