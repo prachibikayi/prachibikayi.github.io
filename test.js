@@ -4,7 +4,7 @@ const stringParts = url.split('products');
 let hasAdId = localStorage.getItem('adId');
 let hasStoreId = localStorage.getItem('storeId');
 let hasWaId = localStorage.getItem('waId');
-if(stringParts[1] && stringParts[1].length > 1 && !hasAdId && !hasStoreId && !hasWaId) {
+if(stringParts[1] && stringParts[1].length > 1 && hasAdId !== 'null' && !hasStoreId !== 'null' && !hasWaId !== 'null') {
   localStorage.setItem('adId', urlParams.get('adId'));
   localStorage.setItem('storeId', urlParams.get('storeId'));
   localStorage.setItem('waId', urlParams.get('waId'));
