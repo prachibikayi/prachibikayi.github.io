@@ -1,13 +1,13 @@
 const urlParams = new URLSearchParams(location.search);
 const url = location.href;
 const stringParts = url.split('products');
-let hasAdId = localStorage.getItem('adId');
-let hasStoreId = localStorage.getItem('storeId');
-let hasWaId = localStorage.getItem('waId');
+let hasAdId = JSON.parse(localStorage.getItem('adId'));
+let hasStoreId = JSON.parse(localStorage.getItem('storeId'));
+let hasWaId = JSON.parse(localStorage.getItem('waId'));
 if(stringParts[1] && stringParts[1].length > 1 && hasAdId !== 'null' && !hasStoreId !== 'null' && !hasWaId !== 'null') {
-  localStorage.setItem('adId', urlParams.get('adId'));
-  localStorage.setItem('storeId', urlParams.get('storeId'));
-  localStorage.setItem('waId', urlParams.get('waId'));
+  localStorage.setItem('adId', JSON.stringify(urlParams.get('adId')));
+  localStorage.setItem('storeId', JSON.stringify(urlParams.get('storeId')));
+  localStorage.setItem('waId', JSON.stringify(urlParams.get('waId')));
 }
 
 var ready = (function () {
