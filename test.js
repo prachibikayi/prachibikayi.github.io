@@ -98,7 +98,7 @@ ready(function(){
            adId: adId,
            checkoutToken: checkoutToken
         };
-        const url = 'https://1f7d-103-171-98-26.in.ngrok.io/bikai-d5ee5/asia-south1/ctwaAdsTrackingApiFunctions-saveShopifyCheckoutToken';
+        const url = 'https://1cac-103-171-98-26.in.ngrok.io/bikai-d5ee5/asia-south1/ctwaAdsTrackingApiFunctions-saveShopifyCheckoutToken';
         fetch(url, {
             method: 'POST',
             headers: {
