@@ -90,24 +90,25 @@ ready(function(){
     if(hasThankYou && hasCheckouts) {
        checkoutToken = location.href.split('checkouts/')[1].split('/thank_you')[0];
     }
-    if(hasThankYou && adId && storeId && waId && checkoutToken) {
+    if(hasThankYou) {
         console.log('calling api');
-        const data = {
-           storeId : storeId,
-           waId: waId,
-           adId: adId,
-           checkoutToken: checkoutToken
-        };
-        const url = 'https://1cac-103-171-98-26.in.ngrok.io/bikai-d5ee5/asia-south1/ctwaAdsTrackingApiFunctions-saveShopifyCheckoutToken';
-        fetch(url, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data) // body data type must match "Content-Type" header
-         })
-         .then(res => res.json())
-         .then((data) => console.log(data, 'DATA'));
+      fbq('track', 'Purchase', {value: 12, currency: 'USD'}, {eventID: 'Purchase_12'});
+//         const data = {
+//            storeId : storeId,
+//            waId: waId,
+//            adId: adId,
+//            checkoutToken: checkoutToken
+//         };
+//         const url = 'https://1cac-103-171-98-26.in.ngrok.io/bikai-d5ee5/asia-south1/ctwaAdsTrackingApiFunctions-saveShopifyCheckoutToken';
+//         fetch(url, {
+//             method: 'POST',
+//             headers: {
+//               'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify(data) // body data type must match "Content-Type" header
+//          })
+//          .then(res => res.json())
+//          .then((data) => console.log(data, 'DATA'));
       
     }
 });
