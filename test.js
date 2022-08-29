@@ -94,7 +94,7 @@ ready(function(){
         console.log('calling api');
         const data = {
            storeId : storeId,
-           storeUrl?: Shopify.shop,
+           storeUrl: Shopify.shop,
            waId: waId,
            adId: adId,
            checkoutToken: checkoutToken,
