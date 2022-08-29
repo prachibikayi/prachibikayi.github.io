@@ -90,26 +90,33 @@ ready(function(){
     if(hasThankYou && hasCheckouts) {
        checkoutToken = location.href.split('checkouts/')[1].split('/thank_you')[0];
     }
-    if(hasThankYou) {
+    if(hasThankYou && checkoutToken) {
         console.log('calling api');
-      fbq('track', 'Purchase', {value: 12, currency: 'USD'}, {eventID: 'Purchase_12'});
-//         const data = {
-//            storeId : storeId,
-//            waId: waId,
-//            adId: adId,
-//            checkoutToken: checkoutToken
-//         };
-//         const url = 'https://1cac-103-171-98-26.in.ngrok.io/bikai-d5ee5/asia-south1/ctwaAdsTrackingApiFunctions-saveShopifyCheckoutToken';
-//         fetch(url, {
-//             method: 'POST',
-//             headers: {
-//               'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify(data) // body data type must match "Content-Type" header
-//          })
-//          .then(res => res.json())
-//          .then((data) => console.log(data, 'DATA'));
+        const data = {
+           storeId : storeId,
+           storeUrl?: Shopify.shop,
+           waId: waId,
+           adId: adId,
+           checkoutToken: checkoutToken,
+           orderDetails: {
+            total_price: Shopify.checkout.total_price,
+            currency: Shopify.checkout.currency,
+            phone_number: Shopify.checkout.phone || Shopify.checkout.shipping_address.phone,
+            address: Shopify.checkout.shipping_address,
+            shopify_customer_id: Shopify.checkout.customer_id,
+            email: Shopify.checkout.email
+           }
+        };
+        const url = 'https://asia-south1-staging-bikayi.cloudfunctions.net/ctwaAdsTrackingApiFunctions-saveShopifyCheckoutToken';
+        fetch(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data) // body data type must match "Content-Type" header
+         })
+         .then(res => res.json())
+         .then((data) => console.log(data, 'DATA'));
       
     }
 });
-
