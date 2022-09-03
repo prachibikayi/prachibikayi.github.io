@@ -1,16 +1,74 @@
-//create link
-var link = document.createElement('link');
-link.rel = 'stylesheet';
-link.href = 'https://prachibikayi.github.io/htmlKaCss.css';
-document.head.appendChild(link);
+const addWidgetCTA = () => {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://1274-106-51-64-99.ngrok.io/bikai-d5ee5/asia-south1/shopifyApiFunctions-createWidgetStyle';
+    document.head.appendChild(link);
+    let widgetCTAdiv = document.createElement('div');
+    widgetCTAdiv.id = 'widgetCTA';
+    widgetCTAdiv.innerHTML = `<svg width="72" height="64" viewBox="0 0 72 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M68.3444 63.3259L58.6581 60.1076C58.1125 59.9302 57.5182 59.9795 57.0097 60.2443C52.127 62.7212 46.5659 63.5402 41.1726 62.5777C35.7802 61.6145 30.8505 58.922 27.1336 54.9093C28.6949 54.8773 30.2518 54.7264 31.7901 54.4591C37.6429 53.3968 43.0371 50.5959 47.2644 46.4236C51.4916 42.2513 54.3546 36.9028 55.4779 31.0795C56.5578 25.3639 55.9431 19.4587 53.7089 14.086C60.6472 16.4275 66.2176 21.6663 68.965 28.4338C71.7132 35.2018 71.366 42.8277 68.0142 49.3197C67.7442 49.8284 67.6929 50.4245 67.8721 50.9719L71.0892 60.5907H71.0886C71.3487 61.3679 71.1454 62.2245 70.5646 62.8034C69.9833 63.3829 69.1239 63.5849 68.3442 63.3262L68.3444 63.3259ZM31.0017 50.0749C25.5561 51.0806 19.9301 50.272 14.9907 47.7735C14.4822 47.5087 13.8878 47.4594 13.3423 47.6368L3.65593 50.8551C2.87622 51.1144 2.01686 50.9118 1.43545 50.3329C0.854685 49.7534 0.651427 48.8968 0.911529 48.1196L4.1286 38.5008C4.30716 37.954 4.25588 37.3572 3.98589 36.8486C0.750307 30.5523 0.331959 23.187 2.833 16.5665C5.33454 9.94629 10.5238 4.68649 17.1223 2.08205C23.7214 -0.522391 31.1162 -0.229155 37.486 2.89002C43.8558 6.00857 48.6094 11.6631 50.5754 18.4602C52.5407 25.2578 51.5361 32.5666 47.8088 38.5863C44.0815 44.6061 37.9779 48.7778 31.0006 50.0741L31.0017 50.0749ZM13.2066 22.0725C13.2066 22.6631 13.442 23.2296 13.8608 23.6472C14.2797 24.0647 14.8481 24.2994 15.4406 24.2994H36.8878C38.1216 24.2994 39.1219 23.3023 39.1219 22.0725C39.1219 20.8427 38.1216 19.8456 36.8878 19.8456H15.4406C14.8481 19.8456 14.2797 20.0803 13.8608 20.4978C13.442 20.9153 13.2066 21.4819 13.2066 22.0725ZM30.1856 30.9799C30.1856 30.3893 29.9502 29.8234 29.5313 29.4052C29.1118 28.9877 28.544 28.7531 27.9515 28.7531H15.4403C14.2077 28.7555 13.2099 29.7519 13.2099 30.9799C13.2099 32.2085 14.2077 33.2049 15.4403 33.2068H27.9515C28.544 33.2074 29.1118 32.9728 29.5313 32.5552C29.9502 32.1371 30.1856 31.5711 30.1856 30.9799Z" fill="#99631B"/>
+    </svg>`;
 
-//create dummy div
-let div = document.createElement("div");
-div.className = "container1";
-div.innerHTML =
-  '<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 64 64" width="64px" height="64px"><radialGradient id="XxuzckEKxQAhu215VR7vra" cx="36" cy="32" r="26.875" gradientUnits="userSpaceOnUse" spreadMethod="reflect"><stop offset="0" stop-color="#afeeff"/><stop offset=".193" stop-color="#bbf1ff"/><stop offset=".703" stop-color="#d7f8ff"/><stop offset="1" stop-color="#e1faff"/></radialGradient><path fill="url(#XxuzckEKxQAhu215VR7vra)" d="M5.5,61L5.5,61C3.015,61,1,58.985,1,56.5v0C1,54.015,3.015,52,5.5,52h0 c2.485,0,4.5,2.015,4.5,4.5v0C10,58.985,7.985,61,5.5,61z"/><radialGradient id="XxuzckEKxQAhu215VR7vrb" cx="32" cy="31.5" r="30.775" gradientUnits="userSpaceOnUse" spreadMethod="reflect"><stop offset="0" stop-color="#afeeff"/><stop offset=".193" stop-color="#bbf1ff"/><stop offset=".703" stop-color="#d7f8ff"/><stop offset="1" stop-color="#e1faff"/></radialGradient><path fill="url(#XxuzckEKxQAhu215VR7vrb)" d="M64,24L64,24c0-2.761-2.239-5-5-5h-5c-2.761,0-5-2.238-5-5v0c0-2.762,2.238-5,5-5h0.565 C56.48,9,58,7.48,58,5.605L58,5.5C58,3.567,56.433,2,54.5,2l-38,0c-1.926,0-3.49,1.556-3.5,3.483L13,5.5 C12.99,7.43,14.552,9,16.483,9H17c2.209,0,4,1.791,4,4v0c0,2.209-1.791,4-4,4H5c-2.761,0-5,2.239-5,5v0c0,2.761,2.239,5,5,5h1 c2.209,0,4,1.791,4,4v0c0,2.209-1.791,4-4,4H5.5C2.462,35,0,37.462,0,40.5v0C0,43.538,2.462,46,5.5,46H19c1.657,0,3,1.343,3,3v0 c0,1.657-1.343,3-3,3h-1.5c-2.485,0-4.5,2.015-4.5,4.5v0c0,2.485,2.015,4.5,4.5,4.5H33h22c2.209,0,4-1.791,4-4v0 c0-2.209-1.791-4-4-4h-6.5c-1.933,0-3.5-1.567-3.5-3.5v0c0-1.933,1.567-3.5,3.5-3.5H60c2.209,0,4-1.791,4-4v0c0-2.209-1.791-4-4-4 h-1.5c-2.485,0-4.5-2.015-4.5-4.5v0c0-2.485,2.015-4.5,4.5-4.5H59C61.761,29,64,26.761,64,24z"/><linearGradient id="XxuzckEKxQAhu215VR7vrc" x1="10.098" x2="10.098" y1="50.804" y2="57" gradientUnits="userSpaceOnUse" spreadMethod="reflect"><stop offset="0" stop-color="#a4a4a4"/><stop offset=".63" stop-color="#7f7f7f"/><stop offset="1" stop-color="#6f6f6f"/><stop offset="1" stop-color="#6f6f6f"/></linearGradient><path fill="url(#XxuzckEKxQAhu215VR7vrc)" d="M8.02,50.804l-1,5c-0.065,0.328,0.037,0.667,0.273,0.903C7.482,56.896,7.737,57,8,57 c0.065,0,0.131-0.007,0.196-0.02l5-1L8.02,50.804z"/><linearGradient id="XxuzckEKxQAhu215VR7vrd" x1="28.5" x2="28.5" y1="55" y2="16" gradientUnits="userSpaceOnUse" spreadMethod="reflect"><stop offset="0" stop-color="#ff8b67"/><stop offset=".847" stop-color="#ffa76a"/><stop offset="1" stop-color="#ffad6b"/><stop offset="1" stop-color="#ffad6b"/></linearGradient><path fill="url(#XxuzckEKxQAhu215VR7vrd)" d="M47.707,28.293l-12-12c-0.391-0.391-1.023-0.391-1.414,0l-25,25 c-0.391,0.391-0.391,1.023,0,1.414l12,12C21.488,54.902,21.744,55,22,55s0.512-0.098,0.707-0.293l25-25 C48.098,29.316,48.098,28.684,47.707,28.293z"/><linearGradient id="XxuzckEKxQAhu215VR7vre" x1="15.5" x2="15.5" y1="56" y2="41.001" gradientUnits="userSpaceOnUse" spreadMethod="reflect"><stop offset="0" stop-color="#ffc662"/><stop offset=".004" stop-color="#ffc662"/><stop offset=".609" stop-color="#ffc582"/><stop offset="1" stop-color="#ffc491"/><stop offset="1" stop-color="#ffc491"/></linearGradient><path fill="url(#XxuzckEKxQAhu215VR7vre)" d="M21.986,47.836C21.906,47.354,21.489,47,21,47h-4v-4c0-0.489-0.354-0.906-0.836-0.986l-6-1 c-0.271-0.043-0.548,0.023-0.768,0.188c-0.219,0.166-0.36,0.414-0.391,0.688l-1,9c-0.033,0.302,0.072,0.603,0.287,0.817l4,4 C12.481,55.896,12.736,56,13,56c0.037,0,0.073-0.002,0.11-0.006l9-1c0.273-0.03,0.521-0.172,0.688-0.391 c0.165-0.22,0.233-0.497,0.188-0.768L21.986,47.836z"/><linearGradient id="XxuzckEKxQAhu215VR7vrf" x1="49.736" x2="49.736" y1="23.5" y2="5.028" gradientUnits="userSpaceOnUse" spreadMethod="reflect"><stop offset="0" stop-color="#ff634d"/><stop offset=".204" stop-color="#fe6464"/><stop offset=".521" stop-color="#fc6581"/><stop offset=".794" stop-color="#fa6694"/><stop offset=".989" stop-color="#fa669a"/><stop offset="1" stop-color="#fa669a"/></linearGradient><path fill="url(#XxuzckEKxQAhu215VR7vrf)" d="M57.603,13.188l-6.791-6.791c-1.826-1.826-4.797-1.826-6.623,0l-3.396,3.396 c-0.391,0.391-0.391,1.023,0,1.414l12,12c0.195,0.195,0.451,0.293,0.707,0.293s0.512-0.098,0.707-0.293l3.396-3.396 C59.429,17.985,59.429,15.015,57.603,13.188z"/><linearGradient id="XxuzckEKxQAhu215VR7vrg" x1="44" x2="44" y1="9.026" y2="30.974" gradientUnits="userSpaceOnUse" spreadMethod="reflect"><stop offset="0" stop-color="#b2b2b2"/><stop offset=".594" stop-color="#949494"/><stop offset="1" stop-color="#848484"/><stop offset="1" stop-color="#848484"/></linearGradient><path fill="url(#XxuzckEKxQAhu215VR7vrg)" d="M53.957,21.543l-11.5-11.5c-1.355-1.355-3.559-1.355-4.914,0l-3.5,3.5 c-1.354,1.354-1.354,3.56,0,4.914l11.5,11.5c0.678,0.678,1.567,1.017,2.457,1.017s1.779-0.339,2.457-1.017l3.5-3.5 C55.312,25.103,55.312,22.897,53.957,21.543z"/></svg>';
-document.body.appendChild(div);
+    let widgetDiv = document.createElement('div');
+    widgetDiv.className = 'overlay';
+    widgetDiv.innerHTML = `       <div class="main">
+       <div class="widget-conatiner" style="background-color:#e0e0e0">
+           <div class="header-container">
+               <img src='https:&#x2F;&#x2F;firebasestorage.googleapis.com&#x2F;v0&#x2F;b&#x2F;bikayi-chat.appspot.com&#x2F;o&#x2F;image_TSKeGkldsuWbIV2QHOXc0CSngBx2_Critical-period-China-looks-to-secure-national-food-supply-by-focusing-on-technology-and-manpower-upgrades.jpeg.jpg?alt&#x3D;media&amp;token&#x3D;892aa652-6731-4ee5-926e-e454fe2148bd'>
+               <div class="title">
+                   Blahh blahh shit
+               </div>
+           </div>
+           <div class="content-container">
+               <div class="redirects">
+                   <div class="redirect-elems">
+                    <img src='Whatsapp.png'>
+                    <a href="//api.whatsapp.com/send?phone=8825173058&amp;text=HOLA">
+                     Open Whatsapp
+                    </a>
+                   </div>
+                   <div class="redirect-elems">
+                    <img src='Messenger.png'>
+                    <a href="//api.whatsapp.com/send?phone=8825173058&amp;text=HOLA">
+                      Open Facebook Messenger
+                    </a>
+                   </div>
 
-document.getElementsByClassName('container1')[0].addEventListener('click', () => {
-    document.getElementsByTagName('body')[0].style.backgroundColor = 'red';
+
+               </div>
+               
+           </div>
+       </div> 
+       <div id="close-widget">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.7071 6.70711C19.0976 6.31658 19.0976 5.68342 18.7071 5.29289C18.3166 4.90237 17.6834 4.90237 17.2929 5.29289L12 10.5858L6.70711 5.29289C6.31658 4.90237 5.68342 4.90237 5.29289 5.29289C4.90237 5.68342 4.90237 6.31658 5.29289 6.70711L10.5858 12L5.29289 17.2929C4.90237 17.6834 4.90237 18.3166 5.29289 18.7071C5.68342 19.0976 6.31658 19.0976 6.70711 18.7071L12 13.4142L17.2929 18.7071C17.6834 19.0976 18.3166 19.0976 18.7071 18.7071C19.0976 18.3166 19.0976 17.6834 18.7071 17.2929L13.4142 12L18.7071 6.70711Z" fill="#616161"/>
+            </svg>
+       </div>
+       </div>
+       </div>
+
+
+`;
+    
+    widgetCTAdiv.addEventListener('click', () => {
+        widgetDiv.style.opacity = 1;
+        widgetCTAdiv.style.opacity = 0;
+        document.body.classList.add('overflow-hidden');
+    })
+    const closeDiv = document.getElementById('close-widget');
+    if(closeDiv) {
+        closeDiv.addEventListener('click', () => {
+            document.body.classList.remove('overflow-hidden');
+            widgetCTAdiv.style.opacity = 1;
+            widgetDiv.style.opacity = 0;
+        })
+    }
+   
+    
+    document.body.appendChild(widgetCTAdiv);
+    document.body.appendChild(widgetDiv);
+
+}
+window.addEventListener('load', () => {
+    addWidgetCTA();
 })
