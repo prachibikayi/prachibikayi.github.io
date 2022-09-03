@@ -49,6 +49,9 @@ const addWidgetCTA = () => {
 
 
 `;
+    document.body.appendChild(widgetCTAdiv);
+    document.body.appendChild(widgetDiv);
+
     
     widgetCTAdiv.addEventListener('click', () => {
         widgetDiv.style.opacity = 1;
@@ -65,9 +68,7 @@ const addWidgetCTA = () => {
     }
    
     
-    document.body.appendChild(widgetCTAdiv);
-    document.body.appendChild(widgetDiv);
-
+    
 }
 window.addEventListener('load', () => {
     addWidgetCTA();
