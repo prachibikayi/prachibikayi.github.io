@@ -11,15 +11,54 @@ const addWidgetCTA = () => {
     </svg>`;
 
     let widgetDiv = document.createElement('div');
-    widgetDiv.className = 'bikayi-widget-overlay bikayi-hidden-item';
-    widgetDiv.innerHTML = `{{{content}}}`;
+    widgetDiv.className = 'bikayi-widget-overlay';
+    widgetDiv.innerHTML = `       <div class="main">
+       <div class="widget-conatiner" style="background-color:#e0e0e0">
+           <div class="header-container">
+               <img src='https:&#x2F;&#x2F;firebasestorage.googleapis.com&#x2F;v0&#x2F;b&#x2F;bikayi-chat.appspot.com&#x2F;o&#x2F;image_TSKeGkldsuWbIV2QHOXc0CSngBx2_Critical-period-China-looks-to-secure-national-food-supply-by-focusing-on-technology-and-manpower-upgrades.jpeg.jpg?alt&#x3D;media&amp;token&#x3D;030f2664-84b9-488a-aa62-f57defe2a7c9'>
+               <div class="title">
+                   Blahh blahh shit
+               </div>
+           </div>
+           <div class="content-container">
+               <div class="redirects">
+                   <div class="redirect-elems">
+                    <img src='Whatsapp.png'>
+                    <a href="//api.whatsapp.com/send?phone=8825173058&amp;text=HOLA">
+                     Open Whatsapp
+                    </a>
+                   </div>
+                   <div class="redirect-elems">
+                    <img src='Messenger.png'>
+                    <a href="//api.whatsapp.com/send?phone=8825173058&amp;text=HOLA">
+                      Open Facebook Messenger
+                    </a>
+                   </div>
+
+
+               </div>
+               
+           </div>
+       </div> 
+       <div id="close-widget">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.7071 6.70711C19.0976 6.31658 19.0976 5.68342 18.7071 5.29289C18.3166 4.90237 17.6834 4.90237 17.2929 5.29289L12 10.5858L6.70711 5.29289C6.31658 4.90237 5.68342 4.90237 5.29289 5.29289C4.90237 5.68342 4.90237 6.31658 5.29289 6.70711L10.5858 12L5.29289 17.2929C4.90237 17.6834 4.90237 18.3166 5.29289 18.7071C5.68342 19.0976 6.31658 19.0976 6.70711 18.7071L12 13.4142L17.2929 18.7071C17.6834 19.0976 18.3166 19.0976 18.7071 18.7071C19.0976 18.3166 19.0976 17.6834 18.7071 17.2929L13.4142 12L18.7071 6.70711Z" fill="#616161"/>
+            </svg>
+       </div>
+       </div>
+       </div>
+
+
+`;
 
     document.body.appendChild(widgetCTAdiv);
     document.body.appendChild(widgetDiv);
     
     widgetCTAdiv.addEventListener('click', () => {
-        widgetDiv.classList.remove('bikayi-hidden-item');
-        widgetCTAdiv.classList.add('bikayi-hidden-item');
+        widgetDiv.style.display = 'block';
+        widgetCTAdiv.style.display = 'none';
+        // widgetDiv.classList.remove('bikayi-hidden-item');
+        // widgetCTAdiv.classList.add('bikayi-hidden-item');
         document.body.classList.add('overflow-hidden');
     })
     const closeDiv = document.getElementById('close-widget');
