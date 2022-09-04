@@ -11,7 +11,7 @@ const addWidgetCTA = () => {
     </svg>`;
 
     let widgetDiv = document.createElement('div');
-    widgetDiv.className = 'bikayi-widget-overlay';
+    widgetDiv.id = 'bikayi-widget-overlay';
     widgetDiv.innerHTML = `       <div class="main">
        <div class="widget-conatiner" style="background-color:#e0e0e0">
            <div class="header-container">
@@ -54,9 +54,12 @@ const addWidgetCTA = () => {
     document.body.appendChild(widgetCTAdiv);
     document.body.appendChild(widgetDiv);
     
-    widgetCTAdiv.addEventListener('click', () => {
-        widgetDiv.style.display = 'block';
-        widgetCTAdiv.style.display = 'none';
+    const circle = document.getElementById('widgetCTA');
+    const mainDiv = document.getElementById('bikayi-widget-overlay');
+    
+    circle.addEventListener('click', () => {
+        circle.style.display = 'block';
+        mainDiv.style.display = 'none';
         // widgetDiv.classList.remove('bikayi-hidden-item');
         // widgetCTAdiv.classList.add('bikayi-hidden-item');
         document.body.classList.add('overflow-hidden');
