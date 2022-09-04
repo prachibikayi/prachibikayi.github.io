@@ -58,8 +58,9 @@ const addWidgetCTA = () => {
     const mainDiv = document.getElementById('bikayi-widget-overlay');
     
     circle.addEventListener('click', () => {
-        circle.style.display = 'block';
-        mainDiv.style.display = 'none';
+        console.log('HIII')
+        circle.style.display = 'none';
+        mainDiv.style.display = 'block';
         // widgetDiv.classList.remove('bikayi-hidden-item');
         // widgetCTAdiv.classList.add('bikayi-hidden-item');
         document.body.classList.add('overflow-hidden');
